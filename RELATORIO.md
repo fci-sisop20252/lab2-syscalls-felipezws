@@ -33,8 +33,8 @@ write, uma vez que cada syscall corresponde a uma mudança no arquivo então o n
 ## 2️⃣ Exercício 2 - Leitura de Arquivo
 
 ### 📊 Resultados da execução:
-- File descriptor: _____
-- Bytes lidos: _____
+- File descriptor: __3__
+- Bytes lidos: __9__
 
 ### 🔧 Comando strace:
 ```bash
@@ -46,19 +46,19 @@ strace -e openat,read,close ./ex2_leitura
 **1. Qual file descriptor foi usado? Por que não começou em 0, 1 ou 2?**
 
 ```
-[Sua análise aqui]
+foi usado o 3, não começou em 0, 1 ou 2 pois estes ja estao reservados pelo sistema (STDIN, STDOUT, STDERR)
 ```
 
 **2. Como você sabe que o arquivo foi lido completamente?**
 
 ```
-[Sua análise aqui]
+quando o numero de bytes lidos for menor que o do buffer
 ```
 
 **3. Por que verificar retorno de cada syscall?**
 
 ```
-[Sua análise aqui]
+para verificar se ocorreu algum erro
 ```
 
 ---
