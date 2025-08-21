@@ -40,7 +40,7 @@ int main() {
      * TODO 1: Implementar loop de leitura
      * Loop até read() retornar 0 (fim do arquivo)
      */
-    while ((bytes_lidos = read(fd, buffer, BUFFER_SIZE)) != 0) {
+    while ((bytes_lidos = read(fd, buffer, BUFFER_SIZE - 1)) != 0) {
         total_reads++;
         
         /*

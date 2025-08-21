@@ -44,7 +44,7 @@ int main() {
      * Use flags: O_WRONLY | O_CREAT | O_TRUNC
      * Permissões: 0644
      */
-    fd_destino = open("dados/destino.txt", O_WRONLY | O_CREAT | O_TRUNC, O_CREAT);
+    fd_destino = open("dados/destino.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
     
     if (fd_destino < 0) {
         perror("Erro ao criar destino");
@@ -56,7 +56,7 @@ int main() {
      * TODO 3: Implementar loop de cópia
      * read() do origem, write() no destino
      */
-    while (bytes_lidos = read(fd_origem, buffer, BUFFER_SIZE - 1) != 0) {
+    while ((bytes_lidos = read(fd_origem, buffer, BUFFER_SIZE - 1)) != 0) {
         total_operacoes++;
         
         /*
