@@ -44,7 +44,7 @@ int main() {
      * Use flags: O_WRONLY | O_CREAT | O_TRUNC
      * Permissões: 0644
      */
-    fd_destino = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC);
+    fd_destino = open("dados/destino.txt", O_WRONLY | O_CREAT | O_TRUNC, O_CREAT);
     
     if (fd_destino < 0) {
         perror("Erro ao criar destino");
