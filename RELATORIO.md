@@ -13,17 +13,17 @@ strace -e write ./ex1b_write
 ### 🔍 Análise
 
 **1. Quantas syscalls write() cada programa gerou?**
-- ex1a_printf: _____ syscalls
-- ex1b_write: _____ syscalls
+- ex1a_printf: __8__ syscalls
+- ex1b_write: __7__ syscalls
 
 **2. Por que há diferença entre os dois métodos? Consulte o docs/printf_vs_write.md**
 
 ```
-[Sua análise aqui]
+Há uma diferenca de um syscall, ja que o como o printf precisa dar outro syscall adicional para acionar o sistema e mudar o arquivo de uma so vez, ja o write escreve no arquivo todas vez, então nao ha necessidade de uma ultima syscall adicional
 ```
 
 **3. Qual método é mais previsível? Por quê você acha isso?**
-
+write, uma vez que cada syscall corresponde a uma mudança no arquivo então o numero de syscalls equivale ao numero de escritas
 ```
 [Sua análise aqui]
 ```
