@@ -75,29 +75,29 @@ para verificar se ocorreu algum erro
 
 | Buffer Size | Chamadas read() | Tempo (s) |
 |-------------|-----------------|-----------|
-| 16          |                 |           |
-| 64          |                 |           |
-| 256         |                 |           |
-| 1024        |                 |           |
+| 16          |        90        |      0.001248     |
+| 64          |         24       |       0.000420    |
+| 256         |           1      |        0.000747   |
+| 1024        |           5      |         0.00000  |
 
 ### 🔍 Análise
 
 **1. Como o tamanho do buffer afeta o número de syscalls?**
 
 ```
-[Sua análise aqui]
+quanto maior o buffer menor o numero de syscalls
 ```
 
 **2. Todas as chamadas read() retornaram BUFFER_SIZE bytes? Discorra brevemente sobre**
 
 ```
-[Sua análise aqui]
+Não, a ultima retorna menos 
 ```
 
 **3. Qual é a relação entre syscalls e performance?**
 
 ```
-[Sua análise aqui]
+Quanto menos syscall mais rapido
 ```
 
 ---
