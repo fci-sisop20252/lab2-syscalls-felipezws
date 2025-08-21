@@ -105,47 +105,47 @@ Quanto menos syscall mais rapido
 ## 4️⃣ Exercício 4 - Cópia de Arquivo
 
 ### 📈 Resultados:
-- Bytes copiados: _____
-- Operações: _____
-- Tempo: _____ segundos
-- Throughput: _____ KB/s
+- Bytes copiados: __1364__
+- Operações: __6__
+- Tempo: __0.000452__ segundos
+- Throughput: __2946.97__ KB/s
 
 ### ✅ Verificação:
 ```bash
 diff dados/origem.txt dados/destino.txt
 ```
-Resultado: [ ] Idênticos [ ] Diferentes
+Resultado: [x] Idênticos [ ] Diferentes
 
 ### 🔍 Análise
 
 **1. Por que devemos verificar que bytes_escritos == bytes_lidos?**
 
 ```
-[Sua análise aqui]
+para saber se houve uma discrepancia de memoria entre leitura e escrita
 ```
 
 **2. Que flags são essenciais no open() do destino?**
 
 ```
-[Sua análise aqui]
+O_CREAT para criar o arquivo
 ```
 
 **3. O número de reads e writes é igual? Por quê?**
 
 ```
-[Sua análise aqui]
+sim, ja que o programa utiliza o mesmo buffer do mesmo tamanho para leitura e escrita
 ```
 
 **4. Como você saberia se o disco ficou cheio?**
 
 ```
-[Sua análise aqui]
+se a função de escrita retorna-se um numero negativo
 ```
 
 **5. O que acontece se esquecer de fechar os arquivos?**
 
 ```
-[Sua análise aqui]
+o sistema mantem o fd do arquivo, possivelmente causando memory leaks
 ```
 
 ---
@@ -157,19 +157,19 @@ Resultado: [ ] Idênticos [ ] Diferentes
 **1. Como as syscalls demonstram a transição usuário → kernel?**
 
 ```
-[Sua análise aqui]
+syscalls possibilitam que usuarios utilizem funcões que somente o kernel consegue, como entrada e saida de texto
 ```
 
 **2. Qual é o seu entendimento sobre a importância dos file descriptors?**
 
 ```
-[Sua análise aqui]
+são importantes para indentificar os diferentes arquivos abertos
 ```
 
 **3. Discorra sobre a relação entre o tamanho do buffer e performance:**
 
 ```
-[Sua análise aqui]
+quanto maior o tamanho do buffer, menos syscalls sao necessarias, então mais performance
 ```
 
 ### ⚡ Comparação de Performance
@@ -180,21 +180,21 @@ time ./ex4_copia
 time cp dados/origem.txt dados/destino_cp.txt
 ```
 
-**Qual foi mais rápido?** _____
+**Qual foi mais rápido?** __o programa__
 
 **Por que você acha que foi mais rápido?**
 
 ```
-[Sua análise aqui]
+Acredito que tenha sido mais rapido ja que cp possui outras funcionalidades, ja que o programa feito por nós é bem mais leve e ja foi feito para ler e copiar este arquivo em especifico
 ```
 
 ---
 
 ## 📤 Entrega
 Certifique-se de ter:
-- [ ] Todos os códigos com TODOs completados
-- [ ] Traces salvos em `traces/`
-- [ ] Este relatório preenchido como `RELATORIO.md`
+- [x] Todos os códigos com TODOs completados
+- [x] Traces salvos em `traces/`
+- [x] Este relatório preenchido como `RELATORIO.md`
 
 ```bash
 strace -e write -o traces/ex1a_trace.txt ./ex1a_printf
